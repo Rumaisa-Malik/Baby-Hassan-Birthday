@@ -460,13 +460,32 @@ document.addEventListener("DOMContentLoaded", () => {
     let wishes = [];
 
     function initGuestbook() {
-        // Changed key to v2 to automatically clear original cached wishes in your browser
-        const savedWishes = localStorage.getItem("hassan_birthday_wishes_v2");
-        if (savedWishes) {
-            wishes = JSON.parse(savedWishes);
+        // Check if the new v2 wishes key exists in browser memory
+        const savedWishesV2 = localStorage.getItem("hassan_birthday_wishes_v2");
+        
+        if (savedWishesV2) {
+            wishes = JSON.parse(savedWishesV2);
         } else {
-            wishes = [...defaultWishes];
-            localStorage.setItem("hassan_birthday_wishes_v2", JSON.stringify(wishes));
+            // Check if wishes exist in the old local storage key and migrate them!
+            const savedWishesV1 = localStorage.getItem("hassan_birthday_wishes");
+            if (savedWishesV1) {
+                try {
+                    const oldWishes = JSON.parse(savedWishesV1);
+                    // Filter out the original preloaded template wishes
+                    const originalDefaultSenders = ["Papa & Mama 💙", "Dada & Dadi 👴👵", "Khala Maryam 💫"];
+                    const customWishes = oldWishes.filter(w => !originalDefaultSenders.includes(w.sender.trim()));
+                    
+                    wishes = customWishes;
+                    localStorage.setItem("hassan_birthday_wishes_v2", JSON.stringify(wishes));
+                } catch (e) {
+                    console.error("Migration error:", e);
+                    wishes = [...defaultWishes];
+                    localStorage.setItem("hassan_birthday_wishes_v2", JSON.stringify(wishes));
+                }
+            } else {
+                wishes = [...defaultWishes];
+                localStorage.setItem("hassan_birthday_wishes_v2", JSON.stringify(wishes));
+            }
         }
         renderWishes();
     }
