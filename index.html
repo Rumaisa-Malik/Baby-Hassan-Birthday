@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hassan! 💙</title>
+    <!-- Google Fonts: Playful Quicksand & Premium Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Style sheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Stars & Clouds Background Elements (Global) -->
+    <div class="stars-container" id="stars-bg"></div>
+    <div class="clouds-container" id="clouds-bg"></div>
+    
+    <!-- Floating Balloons Container -->
+    <div class="balloons-container" id="balloons-bg"></div>
+
+    <!-- 1. MAGICAL INTRO OVERLAY -->
+    <div id="intro-overlay">
+        <!-- Twinkling stars specifically for intro background -->
+        <div class="intro-stars" id="intro-stars-bg"></div>
+        
+        <div class="intro-content">
+            <!-- Glowing Pulsing Gift Box -->
+            <div class="gift-box-wrapper" id="gift-box">
+                <div class="gift-glow-aura"></div>
+                <div class="gift-box">
+                    <div class="gift-lid">
+                        <div class="gift-lid-ribbon"></div>
+                    </div>
+                    <div class="gift-body">
+                        <div class="gift-ribbon-vertical"></div>
+                        <div class="gift-ribbon-horizontal"></div>
+                    </div>
+                    <!-- Cute bow on top -->
+                    <div class="gift-bow">
+                        <svg viewBox="0 0 100 60" width="80" height="48">
+                            <path d="M 50,40 C 30,10 10,20 30,40 C 45,55 49,45 50,40 C 51,45 55,55 70,40 C 90,20 70,10 50,40 Z" fill="#ffffff" stroke="#bae6fd" stroke-width="3"/>
+                            <circle cx="50" cy="40" r="8" fill="#bae6fd"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="intro-title">Hassan’s Birthday Surprise</h1>
+            <p class="intro-tap-text">Tap To Open Hassan’s Surprise 💙</p>
+        </div>
+    </div>
+
+    <!-- 2. MAIN WEBSITE CONTENT -->
+    <div id="main-content" class="hidden">
+        
+        <!-- Premium Floating Music Controls -->
+        <button id="music-toggle" class="music-btn" aria-label="Toggle Background Music">
+            <!-- Sound playing waves SVG -->
+            <svg id="icon-sound-on" class="music-icon" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M12 3v18l-5-5H2V8h5l5-5z" fill="currentColor"/>
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" fill="currentColor"/>
+            </svg>
+            <!-- Sound muted SVG -->
+            <svg id="icon-sound-off" class="music-icon hidden" viewBox="0 0 24 24" width="28" height="28">
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H2v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" fill="currentColor"/>
+            </svg>
+        </button>
+
+        <!-- HERO SECTION -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Happy Birthday Hassan 💙</h1>
+                <p class="hero-subtitle">
+                    <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+                </p>
+            </div>
+            <!-- Decorative floating cloud behind hero -->
+            <div class="hero-cloud-decor"></div>
+        </header>
+
+        <!-- SPECIAL WISH SECTION -->
+        <section class="wish-section">
+            <div class="wish-card-wrapper">
+                <div class="wish-card-glow"></div>
+                <div class="wish-card">
+                    <!-- Elegant visual element at the top of the card -->
+                    <div class="wish-icon">
+                        <svg viewBox="0 0 100 100" width="80" height="80">
+                            <!-- Creamy Cupcake SVG -->
+                            <path d="M30 70 C30 65, 35 60, 50 60 C65 60, 70 65, 70 70 C70 74, 30 74, 30 70 Z" fill="#bae6fd"/>
+                            <path d="M35 70 L65 70 L60 90 L40 90 Z" fill="#38bdf8" opacity="0.8"/>
+                            <!-- Ridges on cup -->
+                            <line x1="45" y1="70" x2="45" y2="90" stroke="#bae6fd" stroke-width="2"/>
+                            <line x1="50" y1="70" x2="50" y2="90" stroke="#bae6fd" stroke-width="2"/>
+                            <line x1="55" y1="70" x2="55" y2="90" stroke="#bae6fd" stroke-width="2"/>
+                            <!-- Frosting circles -->
+                            <circle cx="42" cy="55" r="10" fill="#e0f2fe"/>
+                            <circle cx="58" cy="55" r="10" fill="#e0f2fe"/>
+                            <circle cx="50" cy="46" r="10" fill="#f0f9ff"/>
+                            <!-- Glowing Candle -->
+                            <rect x="48" y="24" width="4" height="15" fill="#fef08a" rx="2"/>
+                            <path d="M50 12 C52 18, 48 20, 50 24 C52 20, 48 18, 50 12 Z" fill="#f59e0b" class="flame-anim"/>
+                            <!-- Sparkles -->
+                            <circle cx="32" cy="40" r="2" fill="#fef08a"/>
+                            <circle cx="68" cy="40" r="2" fill="#fef08a"/>
+                            <circle cx="50" cy="65" r="3" fill="#ffffff" opacity="0.9"/>
+                        </svg>
+                    </div>
+                    
+                    <p class="wish-text">
+                        “May your life always shine with happiness, laughter and beautiful moments. May Allah bless you with health, success and endless smiles. Happy Birthday Baby Hassan 🎂✨”
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE GUESTBOOK WISH WALL -->
+        <section class="wish-wall-section">
+            <div class="section-header">
+                <h2 class="section-title">Blessing & Wish Board 🌟</h2>
+                <p class="section-subtitle-small">Pop floating balloons above, and pin your sweet wishes for Baby Hassan below!</p>
+                <div class="title-divider"></div>
+            </div>
+            
+            <div class="wish-wall-container">
+                <div class="wish-wall-glow"></div>
+                <!-- Interactive board of sticky wishes -->
+                <div class="wishes-board" id="wishes-board">
+                    <!-- Javascript will dynamically inject wishes here -->
+                </div>
+                
+                <div class="wish-wall-action">
+                    <button id="open-wish-modal-btn" class="wish-action-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Pin a Wish for Hassan 💙
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- WISH SUBMISSION MODAL (GLASSMORPHIC) -->
+        <div id="wish-modal" class="modal-overlay hidden">
+            <div class="modal-card">
+                <button id="close-wish-modal-btn" class="modal-close-btn" aria-label="Close form">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <h3 class="modal-title">Pin a Blessing 💌</h3>
+                <p class="modal-subtitle">Your beautiful words will stay pinned to Hassan's wall forever.</p>
+                
+                <form id="wish-form">
+                    <div class="input-group">
+                        <label for="wish-sender">Your Name / Relationship</label>
+                        <input type="text" id="wish-sender" placeholder="e.g., Auntie Maryam, Dada & Dadi, Uncle Ali..." required maxlength="40">
+                    </div>
+                    <div class="input-group">
+                        <label for="wish-message">Your Blessing / Wish</label>
+                        <textarea id="wish-message" rows="4" placeholder="May Allah bless you with endless health, happiness, and beautiful smiles... ✨" required maxlength="250"></textarea>
+                    </div>
+                    <button type="submit" class="modal-submit-btn">Pin My Blessing ✨</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- PHOTO GALLERY SECTION -->
+        <section class="gallery-section">
+            <div class="section-header">
+                <h2 class="section-title">Hassan's Beautiful Moments</h2>
+                <div class="title-divider"></div>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Card 1 -->
+                <div class="gallery-card">
+                    <div class="card-inner">
+                        <div class="image-wrapper">
+                            <img src="images/1.jpeg" alt="Hassan - Our little sunshine" class="gallery-img" onload="this.classList.add('loaded')" onerror="handleImageError(this, 1)">
+                            <div class="svg-fallback-container" id="fallback-1"></div>
+                        </div>
+                        <div class="card-caption">
+                            <p>Our little sunshine ☀️</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="gallery-card">
+                    <div class="card-inner">
+                        <div class="image-wrapper">
+                            <img src="images/2.jpeg" alt="Hassan - The cutest smile ever" class="gallery-img" onload="this.classList.add('loaded')" onerror="handleImageError(this, 2)">
+                            <div class="svg-fallback-container" id="fallback-2"></div>
+                        </div>
+                        <div class="card-caption">
+                            <p>The cutest smile ever 💙</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="gallery-card">
+                    <div class="card-inner">
+                        <div class="image-wrapper">
+                            <img src="images/3.jpeg" alt="Hassan - Tiny hands, endless love" class="gallery-img" onload="this.classList.add('loaded')" onerror="handleImageError(this, 3)">
+                            <div class="svg-fallback-container" id="fallback-3"></div>
+                        </div>
+                        <div class="card-caption">
+                            <p>Tiny hands, endless love ✨</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="gallery-card">
+                    <div class="card-inner">
+                        <div class="image-wrapper">
+                            <img src="images/4.jpeg" alt="Hassan - Bundle of joy" class="gallery-img" onload="this.classList.add('loaded')" onerror="handleImageError(this, 4)">
+                            <div class="svg-fallback-container" id="fallback-4"></div>
+                        </div>
+                        <div class="card-caption">
+                            <p>Bundle of joy 🌈</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="gallery-card">
+                    <div class="card-inner">
+                        <div class="image-wrapper">
+                            <img src="images/5.jpeg" alt="Hassan - Sweetest little star" class="gallery-img" onload="this.classList.add('loaded')" onerror="handleImageError(this, 5)">
+                            <div class="svg-fallback-container" id="fallback-5"></div>
+                        </div>
+                        <div class="card-caption">
+                            <p>Sweetest little star ⭐</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="gallery-card">
+                    <div class="card-inner">
+                        <div class="image-wrapper">
+                            <img src="images/6.jpeg" alt="Hassan - Pure happiness" class="gallery-img" onload="this.classList.add('loaded')" onerror="handleImageError(this, 6)">
+                            <div class="svg-fallback-container" id="fallback-6"></div>
+                        </div>
+                        <div class="card-caption">
+                            <p>Pure happiness 💫</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 7 -->
+                <div class="gallery-card">
+                    <div class="card-inner">
+                        <div class="image-wrapper">
+                            <img src="images/7.jpeg" alt="Hassan - Adorable memories" class="gallery-img" onload="this.classList.add('loaded')" onerror="handleImageError(this, 7)">
+                            <div class="svg-fallback-container" id="fallback-7"></div>
+                        </div>
+                        <div class="card-caption">
+                            <p>Adorable memories 📸</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 8 -->
+                <div class="gallery-card">
+                    <div class="card-inner">
+                        <div class="image-wrapper">
+                            <img src="images/8.jpeg" alt="Hassan - Forever loved" class="gallery-img" onload="this.classList.add('loaded')" onerror="handleImageError(this, 8)">
+                            <div class="svg-fallback-container" id="fallback-8"></div>
+                        </div>
+                        <div class="card-caption">
+                            <p>Forever loved 💙</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <p class="footer-text">Made with love for Hassan <span class="footer-heart">💙</span></p>
+        </footer>
+
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
