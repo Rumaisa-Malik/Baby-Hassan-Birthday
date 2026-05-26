@@ -479,13 +479,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let wishes = [];
 
     function initGuestbook() {
-        // Changed key to v3 to automatically load the new custom default board in your browser
-        const savedWishesV3 = localStorage.getItem("hassan_birthday_wishes_v3");
-        if (savedWishesV3) {
-            wishes = JSON.parse(savedWishesV3);
+        // Changed key to v4 to automatically load the new custom default board in your browser
+        const savedWishesV4 = localStorage.getItem("hassan_birthday_wishes_v4");
+        if (savedWishesV4) {
+            wishes = JSON.parse(savedWishesV4);
         } else {
             wishes = [...defaultWishes];
-            localStorage.setItem("hassan_birthday_wishes_v3", JSON.stringify(wishes));
+            localStorage.setItem("hassan_birthday_wishes_v4", JSON.stringify(wishes));
         }
         renderWishes();
     }
@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             
             wishes.push(newWish);
-            localStorage.setItem("hassan_birthday_wishes_v3", JSON.stringify(wishes));
+            localStorage.setItem("hassan_birthday_wishes_v4", JSON.stringify(wishes));
             
             // Re-render
             renderWishes();
