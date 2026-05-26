@@ -455,37 +455,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 7.5 INTERACTIVE GUESTBOOK & WISH WALL ENGINE
-    const defaultWishes = []; // Started empty so you can pin wishes yourself!
+    const defaultWishes = [
+        {
+            sender: "Big Papa and Mama",
+            message: "Our Sweet baby boy, you have brought so much light and joy into our lives. May you grow up to be kind, healthy and successful. We love you so much",
+            date: "May 27, 2026",
+            color: "tint-blue"
+        },
+        {
+            sender: "Hussam",
+            message: "Happy Birthday our dearest little prince Hassan! May Allah bless you with a long life filled with smiles, happiness, and perfect health.",
+            date: "May 27, 2026",
+            color: "tint-yellow"
+        },
+        {
+            sender: "Atay Rumaisa",
+            message: "As you know i love you so so much and i made this wish for you with pure love and i will deploy it for you so you can see it once you are old enough. I wanted a wish for you that stays with you for life. Love you so so much my cute little baby.",
+            date: "May 27, 2026",
+            color: "tint-mint"
+        }
+    ];
 
     let wishes = [];
 
     function initGuestbook() {
-        // Check if the new v2 wishes key exists in browser memory
-        const savedWishesV2 = localStorage.getItem("hassan_birthday_wishes_v2");
-        
-        if (savedWishesV2) {
-            wishes = JSON.parse(savedWishesV2);
+        // Changed key to v3 to automatically load the new custom default board in your browser
+        const savedWishesV3 = localStorage.getItem("hassan_birthday_wishes_v3");
+        if (savedWishesV3) {
+            wishes = JSON.parse(savedWishesV3);
         } else {
-            // Check if wishes exist in the old local storage key and migrate them!
-            const savedWishesV1 = localStorage.getItem("hassan_birthday_wishes");
-            if (savedWishesV1) {
-                try {
-                    const oldWishes = JSON.parse(savedWishesV1);
-                    // Filter out the original preloaded template wishes
-                    const originalDefaultSenders = ["Papa & Mama 💙", "Dada & Dadi 👴👵", "Khala Maryam 💫"];
-                    const customWishes = oldWishes.filter(w => !originalDefaultSenders.includes(w.sender.trim()));
-                    
-                    wishes = customWishes;
-                    localStorage.setItem("hassan_birthday_wishes_v2", JSON.stringify(wishes));
-                } catch (e) {
-                    console.error("Migration error:", e);
-                    wishes = [...defaultWishes];
-                    localStorage.setItem("hassan_birthday_wishes_v2", JSON.stringify(wishes));
-                }
-            } else {
-                wishes = [...defaultWishes];
-                localStorage.setItem("hassan_birthday_wishes_v2", JSON.stringify(wishes));
-            }
+            wishes = [...defaultWishes];
+            localStorage.setItem("hassan_birthday_wishes_v3", JSON.stringify(wishes));
         }
         renderWishes();
     }
@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             
             wishes.push(newWish);
-            localStorage.setItem("hassan_birthday_wishes_v2", JSON.stringify(wishes));
+            localStorage.setItem("hassan_birthday_wishes_v3", JSON.stringify(wishes));
             
             // Re-render
             renderWishes();
